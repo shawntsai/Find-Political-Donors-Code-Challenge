@@ -8,7 +8,7 @@ We are asked to do two tasks
 
 ## Approach
 * Parse each line and filter out any invalid record
-* Find median log(n) with data structure max heap and min heap, n is the length of amount of donations for specific (recipient id, zip code) or (recipient id, date)
+* Find median with data structure max heap and min heap, n is the length of amount of donations, the complexitiy in get median and insert value per transaction is O(log(n))
 * Using two HashMap data structure to store cumulated sum of contribution, and median donation,  number of transactions of particular tuple (recipient id, zip code) and tuple (recipient id, date)
 * For scalibitity, I stream in the data by 20 mega per chunk, execute per chunk and append output to the result medianvals_by_date.txt. It is capable to handle big amount of data. 
 * When stream in the data, I also update the nessesary infomation for task2, and write to medianvals_by_date at the end of program
@@ -30,15 +30,15 @@ output/medianvals_by_zip.txt
 ./run.sh
 ```
 
-Run unit tests
+Run 10 unit tests
 
 ```
 python src/test_find_political_donors.py
 
 ```
 
-I have also added tset under ./insight_testsuite/tests/test_2
-It can run this two test by running this command in insight_testsuite folder
+I have also added test under ./insight_testsuite/tests/test_2
+You could run this two tests by this command in insight_testsuite folder
 
 ```
 ./run_tests.sh
@@ -47,4 +47,3 @@ It can run this two test by running this command in insight_testsuite folder
 
 ## Author
 Yu Hsiang Tsai
-

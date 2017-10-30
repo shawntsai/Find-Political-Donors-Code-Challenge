@@ -21,7 +21,6 @@ class TestFindPoliticalStatistic(unittest.TestCase):
         line = 'C00177436|N|M2|P|201702039042410894|15|IND|DEEHAN, WILLIAM N|ALPHARETTA|GA|300047357|UNUM|SVP, SALES, CL|01312017|||PR2283873845050|1147350||P/R DEDUCTION ($192.00 BI-WEEKLY)|4020820171370029337'
         self.assertEqual(None, parse_line(line))
 
-
     def test_valid_date(self):
         date = '11052015'
         self.assertTrue(validate_date(date))
@@ -37,6 +36,19 @@ class TestFindPoliticalStatistic(unittest.TestCase):
         med = Median()
         med.add_num(3)
         self.assertEqual(3, med.get_median())
+
+    def test_median_more_than_one_val(self):
+        med = Median()
+        med.add_num(1)
+        med.add_num(2)
+        med.add_num(3)
+        self.assertEqual(2, med.get_median())
+
+    def test_median_double_vals(self):
+        med = Median()
+        med.add_num(1)
+        med.add_num(2)
+        self.assertEqual(1.5, med.get_median())
 
     def test_handle_zip_median_round(self):
         chunk = list()
