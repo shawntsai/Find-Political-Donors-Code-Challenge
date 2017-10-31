@@ -8,7 +8,7 @@ We are asked to do two tasks
 
 ## Approach
 * Parse each line and filter out any invalid record
-* Find median with data structure max heap and min heap, n is the length of amount of donations, the complexitiy in get median and insert value per transaction is O(log(n))
+* Find median with data structure max heap and min heap, n is the length of amount of donations, the complexitiy in get median is O(1) and insert value per transaction is O(log(n))
 * Using two HashMap data structure to store cumulated sum of contribution, and median donation,  number of transactions of particular tuple (recipient id, zip code) and tuple (recipient id, date)
 * For scalibitity, I stream in the data by 20 mega per chunk, execute per chunk and append output to the result medianvals_by_date.txt. It is capable to handle big amount of data. 
 * When stream in the data, I also update the nessesary infomation for task2, and write to medianvals_by_date at the end of program
